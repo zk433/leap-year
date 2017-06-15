@@ -3,7 +3,8 @@ $(document).ready(function(){
 	$("#leap-year").submit(function(event) {
 		event.preventDefault();
 		var year = parseInt($("#year").val());
-		var result = leapYear();
+		console.log(year);
+		var result = leapYear(year);
 		$("#result").text(result);
 	});
 
@@ -11,5 +12,9 @@ $(document).ready(function(){
 
 // Backend
 var leapYear = function(year) {
-	return false;
-}
+	if ((year % 100 !== 0) && (year % 4 === 0) || (year % 400 === 0)) {
+	return true;
+  } else {
+    return false;
+  }
+};
